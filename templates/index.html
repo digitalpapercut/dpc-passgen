@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Random Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Need a password?</h1>
+        <form action="/generate-password" method="POST">
+            <div class="form-group">
+                <label for="password-length">Password Length:</label>
+                <input type="number" id="password-length" min="6" max="32" value="16" name="length">
+            </div>
+            <div class="form-group">
+                <label for="include-uppercase">Include Uppercase Letters:</label>
+                <input type="checkbox" id="include-uppercase" name="letters" checked>
+            </div>
+            <div class="form-group">
+                <label for="include-digits">Include Digits:</label>
+                <input type="checkbox" id="include-digits" name="digits" checked>
+            </div>
+            <div class="form-group">
+                <label for="include-symbols">Include Symbols:</label>
+                <input type="checkbox" id="include-symbols" name="symbols" checked>
+            </div>
+            <button type="submit" id="generate-password-btn">Gimme the Password</button>
+        </form>
+        <div class="result">
+            <h2>Generated Password:</h2>
+            <p id="password-result">{{ password }}</p>
+        </div>
+    </div>
+</body>
+</html>
